@@ -1,4 +1,5 @@
 variable "name" {
+    type = string
     description = "A name for the Tailscale subnet router"
 }
 
