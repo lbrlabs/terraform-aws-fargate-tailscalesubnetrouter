@@ -57,14 +57,14 @@ resource "aws_iam_policy" "secrets" {
 }
 
 module "subnetrouter" {
-  source             = "../"
-  name               = "lbr-fargate-subnetrouter"
-  subnet_ids         = data.aws_subnets.private.ids
-  ecs_cluster_id = data.aws_ecs_cluster.main.id
-  tailscale_hostname = "fargate-subnetrouter"
-  tailscale_subnet_routes = "172.16.0.0/16"
+  source                    = "../"
+  name                      = "lbr-fargate-subnetrouter"
+  subnet_ids                = data.aws_subnets.private.ids
+  ecs_cluster_id            = data.aws_ecs_cluster.main.id
+  tailscale_hostname        = "fargate-subnetrouter"
+  tailscale_subnet_routes   = "172.16.0.0/16"
   tailscale_auth_key_secret = aws_secretsmanager_secret.tailscale_key.arn
-  security_group_ids = [aws_security_group.tailscale.id]
+  security_group_ids        = [aws_security_group.tailscale.id]
 }
 
 resource "aws_iam_role_policy_attachment" "secrets" {
