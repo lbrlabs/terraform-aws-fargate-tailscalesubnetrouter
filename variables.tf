@@ -1,6 +1,6 @@
 variable "name" {
-    type = string
-    description = "A name for the Tailscale subnet router"
+  type        = string
+  description = "A name for the Tailscale subnet router"
 }
 
 variable "cpu" {
@@ -38,28 +38,34 @@ variable "subnet_ids" {
 }
 
 variable "ecs_cluster_id" {
-    type        = string
-    description = "The ID of the ECS cluster"
+  type        = string
+  description = "The ID of the ECS cluster"
 }
 
 variable "tailscale_auth_key_secret" {
-    type = string
-    description = "The secret manager ARN for the Tailscale auth key"
+  type        = string
+  description = "The secret manager ARN for the Tailscale auth key"
 }
 
 variable "tailscale_hostname" {
-    type = string
-    description = "The hostname of the tailscale client"
+  type        = string
+  description = "The hostname of the tailscale client"
 }
 
 variable "tailscale_subnet_routes" {
-    type = string
-    description = "The subnet routes to advertise to the Tailscale network"
-    default = ""
+  type        = string
+  description = "The subnet routes to advertise to the Tailscale network"
+  default     = ""
 }
 
 variable "tailscale_extra_args" {
-    type = string
-    description = "The extra arguments to pass to the Tailscale cotnainer"
-    default = ""
+  type        = string
+  description = "The extra arguments to pass to the Tailscale cotnainer"
+  default     = ""
+}
+
+variable "cloudwatch_retention_days" {
+  type        = number
+  description = "The number of days to retain logs in CloudWatch"
+  default     = 7
 }

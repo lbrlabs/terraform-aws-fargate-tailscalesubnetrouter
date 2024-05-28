@@ -6,25 +6,25 @@ locals {
       cpu       = var.cpu
       memory    = var.memory
       essential = true
-      "healthcheck": {
-        "command": [
-            "tailscale",
-            "status"
+      "healthcheck" : {
+        "command" : [
+          "tailscale",
+          "status"
         ],
-        "interval": 30,
-        "timeout": 5,
-        "retries": 3,
-        "startPeriod": 0
-    },
+        "interval" : 30,
+        "timeout" : 5,
+        "retries" : 3,
+        "startPeriod" : 0
+      },
       environment = [{
         "name" : "TS_HOSTNAME",
         "value" : var.tailscale_hostname
-      }, {
+        }, {
         "name" : "TS_ROUTES",
-        "value": var.tailscale_subnet_routes
-      }, {
+        "value" : var.tailscale_subnet_routes
+        }, {
         "name" : "TS_EXTRA_ARGS",
-        "valueFR": var.tailscale_extra_args
+        "value" : var.tailscale_extra_args
       }]
       secrets = [{
         "name" : "TS_AUTH_KEY",
@@ -39,7 +39,7 @@ locals {
         }
       },
       linux_parameters = {
-        "initProcessEnabled": true
+        "initProcessEnabled" : true
         "capabilities" : {
           "add" : ["NET_ADMIN"]
         }

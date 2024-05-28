@@ -21,6 +21,7 @@ resource "aws_security_group" "tailscale" {
 
 resource "aws_vpc_security_group_ingress_rule" "ingress" {
   security_group_id = aws_security_group.tailscale.id
+  description       = "Allow inbound UDP traffic on port 41641 from any source"
   cidr_ipv4         = "0.0.0.0/0"
   from_port         = 41641
   ip_protocol       = "udp"
@@ -28,6 +29,7 @@ resource "aws_vpc_security_group_ingress_rule" "ingress" {
 }
 
 resource "aws_vpc_security_group_egress_rule" "egress" {
+  description       = "Allow all outbound traffic from the Tailscale Fargate Subnet Router"
   security_group_id = aws_security_group.tailscale.id
   cidr_ipv4         = "0.0.0.0/0"
   ip_protocol       = "-1" # semantically equivalent to all ports

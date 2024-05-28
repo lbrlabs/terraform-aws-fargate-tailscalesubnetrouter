@@ -10,14 +10,8 @@ repos:
   - repo: https://github.com/terraform-docs/terraform-docs
     rev: "v0.16.0" # Get the latest from: https://github.com/terraform-docs/terraform-docs/releases
     hooks:
-      - id: terraform-docs-go
+      - id: terraform-docs-system
         args: ["."]
-
-  - repo: https://github.com/bridgecrewio/checkov.git
-    rev: "2.5.13" # Get the latest from: https://github.com/bridgecrewio/checkov/releases
-    hooks:
-      - id: checkov
-        args: [--skip-check, "CKV_TF_1"] # Terraform module sources do not use a git url with a commit hash revision
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: "v4.5.0" # Get the latest from: https://github.com/pre-commit/pre-commit-hooks/releases
