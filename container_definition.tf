@@ -34,7 +34,7 @@ locals {
         "logDriver" : "awslogs",
         "options" : {
           "awslogs-group" : aws_cloudwatch_log_group.tailscale.name,
-          "awslogs-region" : "us-west-2",
+          "awslogs-region" : data.aws_region.current.name,
           "awslogs-stream-prefix" : "ecs"
         }
       },

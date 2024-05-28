@@ -1,3 +1,5 @@
+data "aws_region" "current" {}
+
 resource "aws_ecs_service" "tailscale" {
   name                  = var.name
   cluster               = var.ecs_cluster_id
