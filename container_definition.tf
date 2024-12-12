@@ -38,12 +38,6 @@ locals {
           "awslogs-stream-prefix" : "ecs"
         }
       },
-      linux_parameters = {
-        "initProcessEnabled" : true
-        "capabilities" : {
-          "add" : ["NET_ADMIN"]
-        }
-      }
     }
   ])
 }
